@@ -4,466 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOY Tech — Brand Onboarding</title>
+    <title>JOY — The First GameFi Hardware Publisher</title>
+
+    <!-- Google Fonts for Source Code Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
-    <style>
-        /* --- Fonts --- */
-        @font-face {
-            font-family: 'Twobit';
-            src: url('assets/fonts/Twobit.otf') format('opentype');
-            font-weight: 400;
-            font-style: normal;
-        }
 
-        @font-face {
-            font-family: 'Twobit';
-            src: url('assets/fonts/Twobit-Bold.otf') format('opentype');
-            font-weight: 700;
-            font-style: normal;
-        }
+    <!-- Model Viewer for 3D Asset -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-        :root {
-            --void: #000000;
-            --lime: #EDFFAD;
-            --grey: #E0E0E0;
-            --dim: rgba(224, 224, 224, 0.12);
-            --gap: 2rem;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--void);
-            color: var(--grey);
-            font-family: 'Source Code Pro', monospace;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        .brand-font {
-            font-family: 'Twobit', monospace;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: var(--lime);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--dim);
-            padding: 1.5rem var(--gap);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .header-logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* Hero */
-        .hero-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem var(--gap) 4rem;
-            background: radial-gradient(circle at 50% 30%, rgba(237, 255, 173, 0.05) 0%, transparent 60%);
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: var(--lime);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            color: #fff;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--lime);
-            color: #000;
-            padding: 1rem 2rem;
-            font-family: 'Twobit', monospace;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            border-radius: 2px;
-        }
-
-        .btn:hover {
-            background: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 6rem var(--gap);
-            border-top: 1px solid var(--dim);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 3rem;
-        }
-
-        .text-large {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stat-card {
-            border: 1px solid var(--lime);
-            padding: 3rem;
-            text-align: center;
-            background: rgba(237, 255, 173, 0.05);
-        }
-
-        .stat-val {
-            font-family: 'Twobit', monospace;
-            font-size: 4rem;
-            color: var(--lime);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .spec-card,
-        .chain-card {
-            border: 1px solid var(--dim);
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            transition: border-color 0.2s;
-        }
-
-        .spec-card:hover,
-        .chain-card:hover {
-            border-color: var(--lime);
-        }
-
-        .spec-card h3,
-        .chain-card h3 {
-            color: var(--lime);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .spec-card p,
-        .chain-card p {
-            font-size: 0.9rem;
-        }
-
-        .console-specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .chain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .chain-card.priority {
-            border-color: rgba(237, 255, 173, 0.4);
-        }
-
-        .token-viz {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-            background: radial-gradient(circle, rgba(237, 255, 173, 0.1) 0%, transparent 70%);
-        }
-
-        .coin-circle {
-            width: 150px;
-            height: 150px;
-            border: 4px solid var(--lime);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Twobit', monospace;
-            font-size: 2rem;
-            color: var(--lime);
-            box-shadow: 0 0 30px rgba(237, 255, 173, 0.3);
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--lime);
-            font-family: 'Twobit', monospace;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--dim);
-            padding: 4rem var(--gap);
-            text-align: center;
-        }
-
-        .footer-brand {
-            font-family: 'Twobit', monospace;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-copy {
-            font-size: 0.8rem;
-            opacity: 0.5;
-        }
-
-        /* Console Image Override */
-        .console-img-container {
-            margin: 0 auto;
-            max-width: 600px;
-            margin-bottom: 3rem;
-        }
-
-        .console-img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(237, 255, 173, 0.1));
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
     <header>
         <a href="#">
-            <img src="assets/images/logo.png" alt="JOY Wordmark" class="header-logo">
+            <!-- Keep existing logo or use text if logo not present. Assuming logo.png exists based on original index.html -->
+            <img src="assets/images/logo.png" alt="JOY Wordmark" class="header-logo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="brand-font" style="display:none; font-size:1.5rem; color:#fff;">JOY</span>
         </a>
         <div class="header-links">
             <a href="#mission">Mission</a>
-            <a href="#product">Console</a>
+            <a href="#console">Console</a>
             <a href="#ecosystem">Ecosystem</a>
             <a href="#token">$JOY</a>
         </div>
     </header>
 
-    <!-- HERO -->
-    <div class="hero-container">
+    <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Game.<br>Earn.<br>JOY!</h1>
-            <p class="hero-subtitle">The first GameFi hardware publisher. The physical distribution gateway for Web3
-                games.</p>
-            <a href="#mission" class="btn">Discover JOY</a>
+            <p class="hero-subtitle">We build the hardware and the ecosystem to put on-chain games in your living room.
+                The first GameFi hardware publisher bridging the gap between Web2 and Web3.</p>
+            <a href="#mission" class="btn"><span>Enter The Ecosystem</span></a>
         </div>
-    </div>
+        <div class="hero-3d">
+            <model-viewer src="assets/3d/JOY Genesis 3D.glb" alt="3D Render of JOY Genesis Console" auto-rotate
+                auto-rotate-delay="0" rotation-per-second="10deg" camera-controls interaction-prompt="none"
+                shadow-intensity="1.5" exposure="1" environment-image="neutral"
+                poster="assets/images/Right Front JOY Genesis.png">
+            </model-viewer>
+        </div>
+    </section>
 
-    <!-- MISSION Section -->
-    <section id="mission">
+    <section id="mission" class="reveal">
         <div class="section-container">
-            <h2 class="section-title">The First GameFi<br>Hardware Publisher</h2>
+            <h2 class="section-title">The First GameFi Hardware Publisher</h2>
             <div class="grid-2">
                 <div>
-                    <p class="text-large">JOY is building both the hardware (a gaming console) and the ecosystem (token,
-                        game studio, developer partnerships) to bring on-chain gaming into a console form factor.</p>
+                    <p class="text-large">We aren't just shipping another game. We're laying the physical tracks for
+                        Web3 gaming to reach a console form factor. The hardware, the software, and the community—all in
+                        one place.</p>
                     <ul class="feature-list">
-                        <li>Physical distribution gateway</li>
-                        <li>Hardware + Software + Community</li>
-                        <li>Bridging Web2 and Web3 gaming</li>
+                        <li>Dedicated physical game distribution</li>
+                        <li>Hardware meets software meets community</li>
+                        <li>Merging traditional catalogs with native on-chain hits</li>
                     </ul>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-val">AAA</div>
-                    <div class="stat-label">Grade Gaming</div>
+                <!-- Brutalist feature block -->
+                <div class="spec-card"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-color: var(--signal-lime); background: rgba(237, 255, 173, 0.05);">
+                    <div style="font-family: 'Twobit', monospace; font-size: 5rem; color: var(--signal-lime);">AAA</div>
+                    <div style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.15em;">Grade Gaming</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCT Section -->
-    <section id="product">
+    <section id="console" class="reveal">
         <div class="section-container">
             <h2 class="section-title">JOY Genesis</h2>
-            <p class="text-large" style="max-width: 600px; margin-bottom: 2rem;">A dedicated Web3 gaming console
-                designed for the next era of play.</p>
-
-            <div class="console-img-container">
-                <img src="assets/images/console.png" alt="JOY Genesis Console" class="console-img">
-            </div>
+            <p class="text-large" style="max-width: 600px;">A dedicated AAA console built for Web3 games. We don't
+                compromise on performance, and we treat on-chain ownership as a first-class feature, not an
+                afterthought.</p>
 
             <div class="console-specs">
                 <div class="spec-card">
                     <h3>Web3 Gaming OS</h3>
-                    <p>Custom Linux-based OS designed to run on-chain games natively.</p>
+                    <p>Powered by our Bazzite-based Linux OS. Featuring the <strong>JOY Store</strong>—the core software
+                        layer that runs on-chain games natively.</p>
                 </div>
                 <div class="spec-card">
                     <h3>Hardware Wallet</h3>
-                    <p>Built-in secure wallet for managing crypto assets & NFTs directly.</p>
+                    <p>Stop fumbling with browser extensions. Manage crypto assets, NFTs, and in-game tokens directly
+                        through the built-in secure wallet.</p>
                 </div>
                 <div class="spec-card">
                     <h3>Steam & Epic</h3>
-                    <p>Full support for traditional PC game libraries alongside Web3 titles.</p>
+                    <p>Play your existing PC library. The JOY Store fully supports traditional Web2 titles alongside
+                        native Web3 games.</p>
                 </div>
                 <div class="spec-card">
                     <h3>Earn $JOY</h3>
-                    <p>Players earn tokens through gameplay activity on the console.</p>
+                    <p>Turn gameplay into actual rewards. Play games on the Genesis and earn native tokens.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ECOSYSTEM Section -->
-    <section id="ecosystem">
+    <section id="ecosystem" class="reveal">
         <div class="section-container">
-            <h2 class="section-title">Multichain Ecosystem</h2>
-            <p class="text-large" style="margin-bottom: 3rem; max-width: 700px;">JOY is chain-agnostic by design,
-                prioritizing reach and performance. We work with the best to bring Web3 to the living room.</p>
+            <h2 class="section-title">Multichain By Design</h2>
+            <p class="text-large" style="max-width: 800px; margin-bottom: 4rem;">We prioritize reach, performance, and
+                real partnerships over tribalism. Through our Hyperplay software layer, we support massive EVM
+                coverage—bringing the best networks straight to the living room.</p>
 
             <div class="chain-grid">
-                <div class="chain-card priority">
+                <div class="chain-card primary-grant">
+                    <span class="chain-badge">Grant Partner</span>
                     <h3>Somnia Network</h3>
-                    <p>Grant Partner • Priority Chain</p>
+                    <p>Priority chain for launch infrastructure and scaling.</p>
                 </div>
-                <div class="chain-card priority">
+                <div class="chain-card primary-grant">
+                    <span class="chain-badge">Grant Partner</span>
                     <h3>Moonbeam</h3>
-                    <p>Grant Partner • Ecosystem Endorsement</p>
+                    <p>Core ecosystem endorsement and collaboration.</p>
                 </div>
                 <div class="chain-card">
                     <h3>Solana</h3>
-                    <p>Active Partner</p>
+                    <p>Active development partner.</p>
                 </div>
                 <div class="chain-card">
                     <h3>BNB Chain</h3>
-                    <p>Active Support</p>
+                    <p>Active support and integration.</p>
                 </div>
                 <div class="chain-card">
+                    <span class="chain-badge" style="background:#555; color:#fff;">Software Layer</span>
                     <h3>Hyperplay</h3>
-                    <p>Broad EVM Coverage</p>
+                    <p>Powering the JOY Store overlay with vast EVM coverage.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TOKEN Section -->
-    <section id="token">
-        <div class="section-container">
-            <h2 class="section-title">$JOY Token</h2>
+    <section id="token" class="reveal">
+        <div class="section-container" style="border-bottom: none;">
+            <h2 class="section-title">The Fuel: $JOY</h2>
             <div class="grid-2">
-                <div class="token-viz">
+                <div class="token-viz-container">
                     <div class="coin-circle">$JOY</div>
                 </div>
                 <div>
-                    <p class="text-large">The native fuel of the JOY ecosystem. Designed for play-to-earn rewards,
-                        in-game economies, and incentives.</p>
-                    <ul class="feature-list">
-                        <li>Earn through gameplay</li>
-                        <li>In-game asset purchases</li>
-                        <li>Ecosystem governance</li>
-                        <li>Developer incentives</li>
+                    <p class="text-large">The native token driving the economy. Designed to reward players, support game
+                        developers, and empower ecosystem governance.</p>
+                    <ul class="feature-list" style="margin-top: 2rem;">
+                        <li>Earn directly through console gameplay</li>
+                        <li>Purchase in-game assets securely</li>
+                        <li>Participate in ecosystem governance</li>
+                        <li>Incentivizing the next wave of Web3 developers</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">JOY Tech</div>
+            <div class="footer-brand">JOY</div>
             <div class="footer-links">
                 <a href="https://x.com/playonjoy">X / Twitter</a>
                 <a href="https://discord.gg/baDHjyZdDB">Discord</a>
                 <a href="https://t.me/playonjoy">Telegram</a>
                 <a href="https://linkedin.com/company/playonjoy">LinkedIn</a>
             </div>
-            <div class="footer-copy">© 2026 Joy Tech. Game. Earn. JOY!</div>
+            <div class="footer-copy">
+                <span>© 2026 Joy Tech. Game. Earn. JOY!</span>
+                <span>Bridging the gap.</span>
+            </div>
         </div>
     </footer>
 
+    <script src="js/app.js"></script>
 </body>
 
 </html>
