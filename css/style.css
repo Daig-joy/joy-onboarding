@@ -59,6 +59,11 @@ h3,
     text-transform: uppercase;
     line-height: 1.1;
     color: #fff;
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: pixelated;
 }
 
 a {
@@ -166,7 +171,7 @@ model-viewer {
     height: 100%;
     outline: none;
     --poster-color: transparent;
-    filter: drop-shadow(0px 30px 40px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.6));
 }
 
 .btn {
@@ -180,6 +185,11 @@ model-viewer {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: pixelated;
     border: none;
     cursor: pointer;
     position: relative;
@@ -363,6 +373,10 @@ model-viewer {
     font-family: 'Twobit', monospace;
     font-size: 3rem;
     color: var(--signal-lime);
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: pixelated;
     box-shadow: 0 0 50px rgba(237, 255, 173, 0.4), inset 0 0 30px rgba(237, 255, 173, 0.2);
     animation: pulse 4s infinite alternate;
     position: relative;
@@ -391,6 +405,10 @@ footer {
     font-family: 'Twobit', monospace;
     font-size: 2.5rem;
     color: #fff;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: pixelated;
 }
 
 .footer-links {
@@ -428,6 +446,7 @@ footer {
     from {
         box-shadow: 0 0 30px rgba(237, 255, 173, 0.3), inset 0 0 20px rgba(237, 255, 173, 0.2);
     }
+
     to {
         box-shadow: 0 0 60px rgba(237, 255, 173, 0.6), inset 0 0 40px rgba(237, 255, 173, 0.4);
     }
